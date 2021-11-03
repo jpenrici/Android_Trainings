@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Basic App</string>
+    <string name="label">TEXTO:</string>
+    <string name="editText">Digite algo aqui.</string>
+    <string name="btn_clean">Limpar</string>
+    <string name="btn_reverse">Inverter</string>
+    <string name="txt_italic">Itálico</string>
+    <string name="txt_bold">Negrito</string>
+</resources>
