@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Example App</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_load">Load</string>
+</resources>
