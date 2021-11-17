@@ -4,4 +4,4 @@ Simple experience.
 
 ## Screenshots
 
-![display](https://github.com/jpenrici/Android_Trainings/blob/main/BasicApp_01/display/display_emulator.png)
+![display](https://github.com/jpenrici/Android_Trainings/blob/main/BasicApp_01_HelloWorld/display/display_emulator.png)
