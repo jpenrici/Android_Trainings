@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Canvas App</string>
+    <string name="btn_clean">Limpar</string>
+    <string name="description">Teste de desenho com Canvas.</string>
+</resources>
