@@ -4,4 +4,4 @@ Simple canvas experience.
 
 ## Screenshots
 
-![display](https://github.com/jpenrici/Android_Trainings/blob/main/CanvasApp_02/display/display_emulator.png)
+![display](https://github.com/jpenrici/Android_Trainings/blob/main/CanvasApp_02_Paint/display/display_emulator.png)
