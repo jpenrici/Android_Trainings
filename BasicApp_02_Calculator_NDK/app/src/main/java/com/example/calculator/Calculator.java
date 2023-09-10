@@ -61,7 +61,7 @@ public class Calculator {
         System.out.println(postfixExpression);
 
         List<String> tokens = new ArrayList<>();
-        String[] array = postfixExpression.split(String.valueOf(currentDelimiter));
+        String[] array = postfixExpression.replace(currentDelimiter, DELIMITER).split(SPACE);
         for (String token : array) {
             if (!token.replace(SPACE, EMPTY).isEmpty()) {
                 tokens.add(token);
