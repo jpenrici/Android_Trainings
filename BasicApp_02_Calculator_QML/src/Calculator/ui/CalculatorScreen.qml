@@ -1,27 +1,30 @@
 import QtQuick
+
 import CalculatorLogic
 
 
 Column  {
     id: calculator
 
-    property int buttonSize: 56
-    property string colorNumber:  "#2E2E2E"
-    property string colorOperator:"#5F9BC8"
-    property string colorOthers:  "#818181"
-    property string fontFamily:   "Arial"
+    property real textHeight      : 64
+    property real buttonWidth     : 64
+    property real buttonHeight    : 64
+    property string colorNumber  : "#2E2E2E"
+    property string colorOperator: "#5F9BC8"
+    property string colorOthers  : "#818181"
+    property string fontFamily   :  "Arial"
 
-    width: parent.width
-    height: parent.height
+    width : 4 * 64
+    height: 8 * 64
 
     TextEdit {
         id: displayState
         width: parent.width
-        height: 32
+        height: textHeight
         color: "#0000ff"
-        text: "Welcome!"
+        text: qsTr("Welcome!")
         font.family: fontFamily
-        font.pointSize: 16
+        font.pointSize: textHeight / 3
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         readOnly: true
@@ -31,10 +34,10 @@ Column  {
     TextEdit {
         id: displayResult
         width: parent.width
-        height: 48
-        text: ""
+        height: textHeight
+        text: qsTr("")
         font.family: fontFamily
-        font.pointSize: 24
+        font.pointSize: textHeight
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
         readOnly: true
@@ -44,10 +47,10 @@ Column  {
     TextEdit {
         id: displayExpression
         width: parent.width
-        height: 56
-        text: ""
+        height: textHeight
+        text: qsTr("")
         font.family: fontFamily
-        font.pixelSize: 28
+        font.pointSize: textHeight
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
         readOnly: true
@@ -55,29 +58,31 @@ Column  {
     }
 
     Grid {
-        rows: 5
+        id: keys
+        rows   : 5
         columns: 4
-        spacing: 6
-        padding: 4
-        topPadding: 8
+        width: parent.width
 
         CalculatorButton {
             symbol: "("
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: displayExpression.text += " ( "
         }
 
         CalculatorButton {
             symbol: ")"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: displayExpression.text += " ) "
         }
 
         CalculatorButton {
             symbol: "CE"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOthers
             onClicked: {
                 displayState.text = "";
@@ -91,7 +96,8 @@ Column  {
 
         CalculatorButton {
             symbol: "AC"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOthers
             onClicked: {
                 displayExpression.text = "";
@@ -102,105 +108,120 @@ Column  {
 
         CalculatorButton {
             symbol: "7"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "8"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "9"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "/"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOperator
             onClicked: displayExpression.text += " / "
         }
 
         CalculatorButton {
             symbol: "4"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "5"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "6"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "x"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOperator
             onClicked: displayExpression.text += " * "
         }
 
         CalculatorButton {
             symbol: "1"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "2"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "3"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "-"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOperator
             onClicked: displayExpression.text += " - "
         }
 
         CalculatorButton {
             symbol: "0"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: ","
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorNumber
             onClicked: (label) => displayExpression.text += label
         }
 
         CalculatorButton {
             symbol: "="
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOperator
             onClicked: {
                 // Prepare
@@ -209,8 +230,8 @@ Column  {
                 let newExpression = lastResult + expression;
                 if (lastResult) {
                     if (!expression.startsWith(" +") && !expression.startsWith(" -")
-                        && !expression.startsWith(" *") && !expression.startsWith(" /")
-                    ) {
+                            && !expression.startsWith(" *") && !expression.startsWith(" /")
+                            ) {
                         newExpression += "?"
                     }
                 }
@@ -233,7 +254,8 @@ Column  {
 
         CalculatorButton {
             symbol: "+"
-            size: buttonSize
+            width: buttonWidth
+            height: buttonHeight
             backgroundColor: colorOperator
             onClicked: displayExpression.text += " + "
         }

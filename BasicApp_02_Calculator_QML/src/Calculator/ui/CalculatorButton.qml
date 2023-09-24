@@ -2,31 +2,30 @@ import QtQuick
 
 
 Rectangle {
-    property string symbol: "()"
+    property string symbol        : "#"
+    property string fontFamily    : "Arial"
     property color backgroundColor: "#000000"
-    property color textColor: "#FFFFFF"
-    property string fontFamily: "Arial"
-    property int size: 96
+    property color foregroundColor: "#FFFFFF"
 
     id: button
-    width: size
-    height: size
-    color: backgroundColor
+    width:  64
+    height: 64
+    radius: 32
+    color:  backgroundColor
     border.color: "#00000000"
-    radius: 15
 
     signal clicked(string label)
 
     Text {
         id: label
-        width: parent.width
+        width:  parent.width
         height: parent.height
-        color: textColor
-        text: qsTr(symbol)
+        text:   qsTr(symbol)
+        color:  foregroundColor
         horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+        verticalAlignment:   Text.AlignVCenter
         font.family: fontFamily
-        font.pointSize: size / symbol.length * 0.5
+        font.pointSize: (width > height ? height : width) * 0.5
     }
 
     SequentialAnimation {
@@ -34,7 +33,7 @@ Rectangle {
         PropertyAnimation {
             target: button
             property: "color"
-            to: "white"
+            to: foregroundColor
             duration: 100
         }
         PropertyAnimation {
@@ -47,7 +46,7 @@ Rectangle {
 
     MouseArea {
         id: mouseArea
-        width: parent.width
+        width:  parent.width
         height: parent.height
 
         onClicked: {
