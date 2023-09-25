@@ -24,8 +24,8 @@ Rectangle {
         color:  foregroundColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment:   Text.AlignVCenter
+        font.pointSize: (width >= height ? height : width) * 0.5
         font.family: fontFamily
-        font.pointSize: (width > height ? height : width) * 0.5
     }
 
     SequentialAnimation {

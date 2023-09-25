@@ -6,9 +6,9 @@ import CalculatorLogic
 Column  {
     id: calculator
 
-    property real textHeight      : 64
-    property real buttonWidth     : 64
-    property real buttonHeight    : 64
+    property real textHeight     : 64
+    property real buttonWidth    : 64
+    property real buttonHeight   : 64
     property string colorNumber  : "#2E2E2E"
     property string colorOperator: "#5F9BC8"
     property string colorOthers  : "#818181"
