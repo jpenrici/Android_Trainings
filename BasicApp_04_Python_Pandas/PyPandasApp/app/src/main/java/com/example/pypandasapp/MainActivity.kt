@@ -63,6 +63,7 @@ fun CsvAnalyser(context: android.content.Context, modifier: Modifier = Modifier)
 }
 
 @Composable
+@Preview
 fun CsvAnalyzerScreen(modifier: Modifier = Modifier) {
 
     val context = LocalContext.current
